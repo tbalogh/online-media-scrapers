@@ -22,9 +22,10 @@ pipenv install
 
 # Usage
 
-## Index
+The index/origo/444 and the ps/nynyny scrapers has the same usage.
 
 ```
-scrapy crawl index -a output_root=<some_directory> -a start_date=YYYY/MM/DD end_date=YYYY/MM/DD
+scrapy crawl <[index|origo|nnn]> -a output_root=<output_path> -a start_date=<YYYY/MM/DD> end_date=<YYYY/MM/DD>
 
+scrapy crawl <[ps|nynyny]> -a output_root=<output_path> -a pages=<number>
 ```
