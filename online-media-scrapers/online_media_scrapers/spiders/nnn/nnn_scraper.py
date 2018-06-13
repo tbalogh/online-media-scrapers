@@ -19,7 +19,7 @@ class NnnSpider(scrapy.Spider):
         self.output_root = self.output_root.rstrip('/')
         self.storage = ArticleStorage(self.output_root)
         self.log = Logger(self.output_root + '/scraper.log')
-        self.article_url_xpath = '//div/h3/a/@href'
+        self.article_url_xpath = '//article/h3/a/@href'
         self.archive_url_provider = NnnDailyArchiveUrlProvider()
 
     def start_requests(self):
