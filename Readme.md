@@ -13,7 +13,19 @@ Docker
 
 # Usage
 
+## Directly
+
+You can use it without docker. [Read using directly here](online-media-scrapers/Readme.md)
+
+## Already built Docker image
+[Find the image and description here](https://hub.docker.com/r/tbalogh/online-media-scrapers/)
+
 ## Build the image
-docker build -t scrapers . 
+```
+docker build -t <tag> . 
+```
+
 ## Run the image
-`docker run -i -v<path_to_save_articles_on_your_machine>:/opt/articles scrapers <[index|origo|nnn]> -a output_root=/opt/articles -a start_date=<YYYY/MM/DD> -a end_date=<YYYY/MM/DD>
+```
+docker run -i -v<path_to_save_articles_on_your_machine>:/opt/articles scrapers <[index|origo|nnn]> -a output_root=/opt/articles -a start_date=<YYYY/MM/DD> -a end_date=<YYYY/MM/DD>
+```
