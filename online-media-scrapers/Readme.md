@@ -7,13 +7,25 @@ This project contains spiders/scrapers that can crawl/scrape articles of hungari
 4. The spiders save the html content in the give output_root with a generated name. (file names usually genereted based on the article title.) 
 
 
-# Dependencies
+# Install dependencies
 
-Docker
+Use pipenv installing dependencies
+
+```
+pipenv --three
+
+pipenv shell
+
+pipenv install
+
+```
 
 # Usage
 
-## Build the image
-docker build -t scrapers . 
-## Run the image
-`docker run -i -v<path_to_save_articles_on_your_machine>:/opt/articles scrapers <[index|origo|nnn]> -a output_root=/opt/articles -a start_date=<YYYY/MM/DD> -a end_date=<YYYY/MM/DD>
+The index/origo/444 and the ps/nynyny scrapers has the same usage.
+
+```
+scrapy crawl <[index|origo|nnn]> -a output_root=<output_path> -a start_date=<YYYY/MM/DD> end_date=<YYYY/MM/DD>
+
+scrapy crawl <[ps|nynyny]> -a output_root=<output_path> -a pages=<number>
+```
