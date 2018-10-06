@@ -1,10 +1,10 @@
 # Introduction
 
-This project contains spiders/scrapers that can crawl/scrape articles of hungarian online news portals such as http://index.hu or http://origo.hu. The spiders discovers and download articles as followings:
-1. Spiders configured with start_date-end_date pair (or with a custom number) and with an output_root directory
-2. Based on the parameters the spiders discovers the archive urls, such as: http://index.hu/belfold/2018/01/01
-3. Spiders discover the article urls on the archive urls, such as http://index.hu/belfold/2018/01/01/<article_title>
-4. The spiders save the html content in the give output_root with a generated name. (file names usually genereted based on the article title.) 
+This project contains scrapers that can scrape articles of hungarian online news portals such as http://index.hu or http://origo.hu. The scrapers discovers and download articles as followings:
+1. Scrapers configured with start_date-end_date pair (or with a custom number) and with an output_root directory
+2. Based on the parameters the scrapers discovers the archive urls, such as: http://index.hu/belfold/2018/01/01
+3. Scrapers discover the article urls on the archive urls, such as http://index.hu/belfold/2018/01/01/<article_title>
+4. The scrapers save the html content in the give output_root with a generated name. (file names usually genereted based on the article title.) 
 
 http://pestisracok.hu and http://888.hu can not be scraped with between a start_date and end_date however you can pass a number (pages) parameter to it. They organize their content as an infinite list of articles, and when you scroll down it will load content (new "pages") coninuously. So you can specify with a number parameter how many "pages" you want to crawl.
 
