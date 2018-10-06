@@ -6,6 +6,7 @@ This project contains spiders/scrapers that can crawl/scrape articles of hungari
 3. Spiders discover the article urls on the archive urls, such as http://index.hu/belfold/2018/01/01/<article_title>
 4. The spiders save the html content in the give output_root with a generated name. (file names usually genereted based on the article title.) 
 
+http://pestisracok.hu and http://888.hu can not be scraped with between a start_date and end_date however you can pass a number (pages) parameter to it. They organize their content as an infinite list of articles, and when you scroll down it will load content (new "pages") coninuously. So you can specify with a number parameter how many "pages" you want to crawl.
 
 # Dependencies
 
@@ -13,11 +14,11 @@ Docker
 
 # Usage
 
-## Directly
+## Without docker
 
 You can use it without docker. [Read using directly here](online-media-scrapers/Readme.md)
 
-## Already built Docker image
+## Already built Docker ismage
 [Find the image and description here](https://hub.docker.com/r/tbalogh/online-media-scrapers/)
 
 ## Build the image
@@ -25,7 +26,31 @@ You can use it without docker. [Read using directly here](online-media-scrapers/
 docker build -t <tag> . 
 ```
 
-## Run the image
+example:
 ```
-docker run -i -v<path_to_save_articles_on_your_machine>:/opt/articles scrapers <[index|origo|nnn]> -a output_root=/opt/articles -a start_date=<YYYY/MM/DD> -a end_date=<YYYY/MM/DD>
+docker build -t scrapers . 
+```
+## Run the image
+
+### For scraping index, origo, 444:
+
+```bash
+docker run -i -v<path/to/save/result/on/your/local/machine/>:/opt/articles <tag> <[index|origo|nnn]> -a output_root=/opt/articles -a start_date=<YYYY/MM/DD> -a end_date=<YYYY/MM/DD>
+```
+
+Example:
+
+```bash
+docker run -i -v"$(pwd)/index":/opt/articles scrapers index -a output_root=/opt/articles -a start_date=2018/03/01 -a end_date=2018/03/02
+```
+
+### For scraping pestisracok, 888:
+
+```bash
+docker run -i -v<path/to/save/result/on/your/local/machine/>:/opt/articles <tag> <[ps|nynyny]> -a output_root=/opt/articles -a pages=<number>
+```
+
+example:
+```bash
+docker run -i -v"$(pwd)/ps":/opt/articles scrapers ps -a output_root=/opt/articles -a pages=2
 ```

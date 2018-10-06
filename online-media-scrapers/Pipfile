@@ -8,13 +8,6 @@ name = "pypi"
 [packages]
 
 scrapy = "*"
-file-utils = {git = "https://github.com/tbalogh/python-file-utils.git", editable = true}
-executor_logger = {git = "https://github.com/tbalogh/python-executor-logger.git", editable = true}
-
-
-[dev-packages]
-
-
 
 [requires]
 

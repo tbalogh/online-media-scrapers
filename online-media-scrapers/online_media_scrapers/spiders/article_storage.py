@@ -1,8 +1,13 @@
-import os
+import os, codecs
 from urllib.parse import urlparse
 
-from file_utils.file_utils import save
+def save(content, path):
+    directory = os.path.dirname(path)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
+    with codecs.open(path, "w+", encoding='utf8') as f:
+        f.write(content)
 
 class ArticleStorage:
     def __init__(self, path):

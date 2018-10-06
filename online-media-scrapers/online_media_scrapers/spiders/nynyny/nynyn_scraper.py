@@ -5,10 +5,9 @@ import scrapy
 
 from .nynyny_archive_url_provider import NyNyNyArchiveUrlProvider
 from ..article_storage import ArticleStorage
+from ..logger import Logger
 
-import importlib.util
-
-from executor_logger.logger import Logger
+# import importlib.util
 
 class NyNyNySpider(scrapy.Spider):
     name = "nynyny"

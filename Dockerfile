@@ -6,7 +6,9 @@ WORKDIR /opt/online-media-scrapers
 #    apt-get update && \
 #    apt-get install pipenv
 RUN pip install pipenv
-RUN pipenv --three && pipenv install
+
+#Workaround for pipenv issue: to manually install scrapy
+RUN pipenv --three && pip install scrapy
 ENTRYPOINT ["pipenv", "run", "scrapy", "crawl"]
 CMD ["scrapy", "crawl"]
 

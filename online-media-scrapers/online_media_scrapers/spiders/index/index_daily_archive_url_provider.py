@@ -17,7 +17,7 @@ def as_string(date, delimiter):
 class IndexDailyArchiveUrlProvider:
     def __init__(self):
         self.base_url = "http://index.hu"
-        self.categories = ['belfold', 'kulfold', 'gazdasag']
+        self.categories = ['belfold', 'kulfold', 'gazdasag', 'techtud', 'kultur', 'sport/futball', 'sport/forma1']
 
     def urls_for_date(self, date):
         SEP = '/'

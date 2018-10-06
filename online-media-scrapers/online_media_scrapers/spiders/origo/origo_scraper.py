@@ -1,10 +1,9 @@
 import os, sys, datetime
 import scrapy
 
-from ..article_storage import ArticleStorage
 from ..origo.origo_daily_archive_url_provider import OrigoDailyArchiveUrlProvider
-
-from executor_logger.logger import Logger
+from ..article_storage import ArticleStorage
+from ..logger import Logger
 
 class OrigoSpider(scrapy.Spider):
     name = "origo"

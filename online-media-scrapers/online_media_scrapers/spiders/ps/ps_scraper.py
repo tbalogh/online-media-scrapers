@@ -3,8 +3,7 @@ import scrapy
 
 from .ps_archive_url_provider import PsArchiveUrlProvider
 from ..article_storage import ArticleStorage
-
-from executor_logger.logger import Logger
+from ..logger import Logger
 
 class PsSpider(scrapy.Spider):
     name = "ps"

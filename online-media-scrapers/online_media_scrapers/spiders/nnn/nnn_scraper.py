@@ -4,10 +4,10 @@ import sys
 
 import scrapy
 
-from ..article_storage import ArticleStorage
 from ..nnn.nnn_daily_archive_url_provider import NnnDailyArchiveUrlProvider
 
-from executor_logger.logger import Logger
+from ..article_storage import ArticleStorage
+from ..logger import Logger
 
 
 class NnnSpider(scrapy.Spider):

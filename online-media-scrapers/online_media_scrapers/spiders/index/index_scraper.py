@@ -1,10 +1,10 @@
 import sys, os, datetime
 import scrapy
 
-from ..article_storage import ArticleStorage
 from ..index.index_daily_archive_url_provider import IndexDailyArchiveUrlProvider
 
-from executor_logger.logger import Logger
+from ..article_storage import ArticleStorage
+from ..logger import Logger
 
 
 class IndexSpider(scrapy.Spider):
