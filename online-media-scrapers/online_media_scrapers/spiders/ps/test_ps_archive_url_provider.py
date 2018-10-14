@@ -22,15 +22,22 @@ class TestPsArchiveUrlProvider(unittest.TestCase):
                 "http://pestisracok.hu",
                 "http://pestisracok.hu/page/1",
                 "http://pestisracok.hu/page/2",
+                "http://pestisracok.hu/page/3"
             ],
-            (12, 2): [
+            (12, 13): [
                 "http://pestisracok.hu/page/12",
                 "http://pestisracok.hu/page/13",
+            ],
+            (50, 51): [
+                "http://pestisracok.hu/page/50",
+                "http://pestisracok.hu/page/51",
             ],
             (0, 0): [
             ]
         }
         for (start_idx, num_of_pages), expected in test_map.items():
             i = 0
-            urls = self.archiveUrlProvider.urls(start_idx, num_of_pages)
+            urls = list(self.archiveUrlProvider.urls(start_idx, num_of_pages))
+            print(urls)
+            self.assertListEqual(expected, urls)
                 
