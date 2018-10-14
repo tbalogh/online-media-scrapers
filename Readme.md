@@ -47,10 +47,10 @@ docker run -i -v"$(pwd)/index":/opt/articles scrapers index -a output_root=/opt/
 ### For scraping pestisracok, 888:
 
 ```bash
-docker run -i -v<path/to/save/result/on/your/local/machine/>:/opt/articles <tag> <[ps|nynyny]> -a output_root=/opt/articles -a pages=<number>
+docker run -i -v<path/to/save/result/on/your/local/machine/>:/opt/articles <tag> <[ps|nynyny]> -a output_root=/opt/articles -a start_page=<number> -a end_page<number>
 ```
 
 example:
 ```bash
-docker run -i -v"$(pwd)/ps":/opt/articles scrapers ps -a output_root=/opt/articles -a pages=2
+docker run -i -v"$(pwd)/ps":/opt/articles scrapers ps -a output_root=/opt/articles -a start_page=1 -a end_page=2
 ```

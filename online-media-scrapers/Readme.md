@@ -45,13 +45,13 @@ scrapy crawl index -a output_root=./output/index -a start_date=2018/01/01 -a end
 usage:
 
 ```bash
-scrapy crawl <[ps|nynyny]> -a output_root=<output_path> -a pages=<number>
+scrapy crawl <[ps|nynyny]> -a output_root=<output_path> -a start_page=<number> -a end_page=<number>
 ```
 
 example:
 
 ```bash
-scrapy crawl ps -a output_root=./output/ps -a pages=5
+scrapy crawl ps -a output_root=./output/ps -a start_page=1 -a end_page=5
 ```
 
 # Tips
