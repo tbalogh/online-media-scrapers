@@ -4,15 +4,12 @@ class NyNyNyArchiveUrlProvider:
     def url(self, index):
         return self.base_url + str(self.calculate_h(index))
 
-    def urls(self, index, counter):
-        if counter is 0:
+    def urls(self, start_index, end_index):
+        if end_index - start_index <= 0:
             return []
         else:
-            for i in range(index, index + counter):
-                if self.should_terminate(i):
-                    break
-                else:
-                    yield self.url(i)
+            for i in range(start_index, end_index + 1):
+                yield self.url(i)
 
     def should_terminate(self, index):
         # 888 is tricky. it uses an "h" query param if we click on "Load more" button, but it only goes around h=26000

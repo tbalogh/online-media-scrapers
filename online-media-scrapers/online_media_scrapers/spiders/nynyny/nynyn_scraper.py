@@ -20,11 +20,11 @@ class NyNyNySpider(scrapy.Spider):
         self.log = Logger(self.output_root + '/scraper.log' )
         self.article_url_xpath = '//div[@class="fig-wrap"]/figure/a/@href'
         self.archiveUrlProvider = NyNyNyArchiveUrlProvider()
-        self.start_page = 1
-        self.to_page = int(self.pages)
+        self.start_page = int(self.start_page)
+        self.end_page = int(self.end_page)
 
     def start_requests(self):
-        for url in self.archiveUrlProvider.urls(self.start_page, self.to_page):
+        for url in self.archiveUrlProvider.urls(self.start_page, self.end_page):
             yield scrapy.Request(url=url, callback=self.crawl_articles)
 
     def crawl_articles(self, response):
@@ -43,5 +43,9 @@ class NyNyNySpider(scrapy.Spider):
         if not hasattr(self, 'output_root'):
             raise ValueError("output_root argument is missing. You should pass it like 'scrapy crawl index -a output_root=<path>' ")
 
-        if not hasattr(self, 'pages'):
-            raise ValueError("pages argument is missing. You should pass it like 'scrapy crawl index -a pages=<number>' \n 1 page means ~10-30 article")
+        
+        if not hasattr(self, 'start_page'):
+            raise ValueError("start_page argument is missing. You should pass it like 'scrapy crawl index -a start_page=<number>' \n 1 page means ~10-30 article")
+
+        if not hasattr(self, 'end_page'):
+            raise ValueError("end_page argument is missing. You should pass it like 'scrapy crawl index -a end_page=<number>' \n 1 page means ~10-30 article")
